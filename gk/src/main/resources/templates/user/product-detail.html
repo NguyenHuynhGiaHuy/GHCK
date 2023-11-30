@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Chi tiết sản phẩm</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+        }
+
+        .main-img {
+            max-width: 300px;
+        }
+
+        .main-img img {
+            width: 100%;
+            height: auto;
+        }
+
+        .main-description {
+            padding-left: 20px;
+            flex: 1;
+        }
+
+        .category,
+        .product-title,
+        .new-price {
+            font-weight: bold;
+        }
+
+        .price-area {
+            margin-top: 20px;
+        }
+
+        .buttons {
+            margin-top: 40px;
+        }
+
+        .block {
+            margin-right: 10px;
+        }
+
+        .quantity input {
+            width: 80px;
+        }
+
+        .btn-add-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .btn-add-cart:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="header" class="px-md-4 mb-3 bg-white border-bottom shadow-sm" th:insert="user/header"></div>
+<div class="container">
+
+    <div class="main-img">
+        <img class="img-fluid" th:src="@{'/images/' + ${product.getImage()}}" alt="ProductS">
+    </div>
+    <div class="main-description">
+        <div class="category" th:text="${'Danh Mục: ' + product.category.getName()}"></div>
+        <div class="product-title my-3" th:text="${'Tên sản phẩm: '+ product.getName()}"></div>
+        <div class="price-area">
+            <p class="new-price mb-1" th:text="${'Giá sản phẩm: '+ product.getPrice() + 'VND'}"></p>
+            <p class="text-secondary" th:text="${'Thương hiệu: ' + product.getBrand()}"></p>
+        </div>
+        <div class="buttons">
+            <div class="block">
+                <button class="shadow btn custom-btn btn-add-cart" th:id="${'p' + product.getId()}">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="block quantity">
+                <input type="number" class="form-control" id="cart_quantity" value="0" min="0" max="100"
+                       placeholder="Số lượng" name="cart_quantity">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer" class="px-md-4 mb-3 bg-white border-bottom shadow-sm" th:insert="user/footer"></div>
+<script src="/js/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/product.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+	a {
+		color: black;
+	}
+	span {
+		color: black;
+
+	}
+</style>
+<script>
+$(document).ready(function(){
+	// Activate tooltip
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	// Select/Deselect checkboxes
+	var checkbox = $('table tbody input[type="checkbox"]');
+	$("#selectAll").click(function(){
+		if(this.checked){
+			checkbox.each(function(){
+				this.checked = true;                        
+			});
+		} else{
+			checkbox.each(function(){
+				this.checked = false;                        
+			});
+		} 
+	});
+	checkbox.click(function(){
+		if(!this.checked){
+			$("#selectAll").prop("checked", false);
+		}
+	});
+});
+</script>
+</head>
+<body>
+<div class="container-xl">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+						<h3>Quản lý sản phẩm</h3>
+					</div>
+					<div class="col-sm-6">
+						<a href="#addEmployeeModal" class="btn btn-outline-success" data-toggle="modal"><span>Thêm sản phẩm</span></a>
+						<a href="#deleteEmployeeModal" class="btn btn-outline-danger" data-toggle="modal"><span>Xóa sản phẩm</span></a>
+					</div>
+				</div>
+			</div>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Tên sản phẩm</th>
+						<th>Hình</th>
+						<th>Màu sắc</th>
+						<th>Thương hiệu</th>
+                        <th>Action</th>
+					</tr>
+				</thead>
+				<tbody id="body-wrapper-product">
+					
+					
+				</tbody>
+			</table>
+			
+		</div>
+	</div>        
+</div>
+
+<div id="addEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">						
+					<h4 class="modal-title">Thêm sản phẩm</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+                    <div class="form-group">
+						<label>Danh mục sản phẩm</label>
+                        <select name="category" id="idCategory">
+                            <option value="0">Chọn danh mục</option>
+                            <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getName()}">
+                            </option>
+                        </select>
+					</div>					
+					<div class="form-group">
+						<label>Tên sản phẩm</label>
+						<input id="name" type="text" name="name" class="form-control" required>
+					</div>
+                    <div class="form-group">
+						<label>Giá</label>
+						<input id="price" type="text" name="name" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Hình</label>
+						<input id="image" type="file" name="image" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Màu sắc</label>
+						<textarea id="color" class="form-control" name="color" required></textarea>
+					</div>
+					<div class="form-group">
+						<label>Thương hiệu</label>
+						<input id="brand" type="text" name="brand" class="form-control" required>
+					</div>					
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<button type="button" class="btn-add-product btn btn-success">Thêm sản phẩm</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="deleteEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header">						
+					<h4 class="modal-title">Delete Product</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<p>Are you sure you want to delete these Records?</p>
+					<p class="text-warning"><small>This action cannot be undone.</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="submit" class="btn btn-danger" value="Delete">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+<script src="/js/product.js"></script>

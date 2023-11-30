@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="header" class="px-md-4 mb-3 bg-white border-bottom shadow-sm" th:insert="user/header"></div>
+<div id="addEmployeeModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Thêm danh mục</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tên danh mục</label>
+                        <input type="text" name="name" id="name-cate-add" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+
+                    <button class="btn-submit-add btn btn-success" data-toggle="modal">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

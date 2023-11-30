@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .group-left {
+            flex: 1;
+        }
+
+        .logo img {
+            width: 200px; /* Điều chỉnh kích thước logo tại đây */
+            height: auto;
+        }
+
+        .group-right {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .group-right a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .group-right a:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header-content">
+        <div class="group-left">
+            <div class="logo">
+                <a href="/cart"><img th:src="@{'images/img.png'}" alt="Logo"></a>
+            </div>
+        </div>
+        <nav class="nav-links"></nav>
+        <div class="group-right">
+            <div style="width: 50%; text-align: center;">
+                <a href="/cart">
+                    <i class="fas fa-shopping-cart"></i> Giỏ hàng
+                </a>
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <a href="/order/your-orders">
+                    <i class="fas fa-clipboard-list"></i> Đặt hàng
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
