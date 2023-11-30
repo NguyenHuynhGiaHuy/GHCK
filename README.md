@@ -35,6 +35,12 @@ Giao diện danh mục:
 ![image](https://github.com/NguyenHuynhGiaHuy/GHCK/assets/130195149/d56c0778-ba93-4131-a130-78dfe325edfc)
 ![image](https://github.com/NguyenHuynhGiaHuy/GHCK/assets/130195149/2ffccf8a-4212-4ed2-b8dd-ab5ac080a468)
 
+CÁCH THỨC CHẠY:
+Bật xamp
+![image](https://github.com/NguyenHuynhGiaHuy/GHCK/assets/130195149/cdd4a8c1-9d19-4453-9a12-ebacefcf182e)
+![image](https://github.com/NguyenHuynhGiaHuy/GHCK/assets/130195149/006f1048-6fdf-4f5b-986b-c6044233e3d7)
+Gõ http://localhost:8082/
+
 
 
 
