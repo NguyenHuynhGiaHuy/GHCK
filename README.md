@@ -13,3 +13,5 @@ Bài dùng những công nghệ:
 6/Project Lombok: Là một thư viện Java giúp giảm việc viết mã thông qua các annotation để tự động sinh mã boilerplate.
 
 Cấu hình này sử dụng phiên bản Java 17 (java.version là 17) và đã cấu hình plugin spring-boot-maven-plugin để build ứng dụng Spring Boot với Maven.
+Cơ sở dữ liệu:
+![image](https://github.com/NguyenHuynhGiaHuy/GHCK/assets/130195149/5f6bf787-84e5-4c15-a640-c8aa354f060a)
